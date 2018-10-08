@@ -13,8 +13,8 @@
 
 #define size_of_array_rows(arr) sizeof(arr)/sizeof(arr[0])
 #define size_of_array_cols(arr) sizeof(arr[0])/sizeof(arr[0][0])
-#define ROWS 2
-#define COLS 2
+#define ROWS 5
+#define COLS 5
 
 int data[ROWS][COLS];
 
@@ -60,10 +60,15 @@ void insert(){
 	printf("Enter Column: ");
 	scanf("%d", &incol);
 
-	printf("Enter the data to be stored 'Digits': ");
-	scanf("%d", &ansdata);
+	if(inrow>=ROWS && incol>=COLS){
+		printf("\nData can't be stored outside the array!, last row is %d, last column is %d\n\n",ROWS-1,COLS-1);
+	}else{
+		printf("Enter the data to be stored 'Digits': ");
+		scanf("%d", &ansdata);
 
-	data[inrow][incol]=ansdata;
+		data[inrow][incol]=ansdata;
+		printf("\nData stored successfully!\n\n");
+	}
 
 	checkans();
 }
@@ -77,11 +82,11 @@ void modify(){
 
 	printf("Enter Number of ROWS to see instructions: ");
 	scanf("%d",&mrows);
-	printf("Change 'ROWS' to %d before compile\n",mrows);
+	printf("\nChange the value of '#define ROWS' to %d before compilation!.\n\n",mrows);
 
 	printf("Enter Number of Columns to see instructions: ");
 	scanf("%d",&mcols);
-	printf("Change 'COLS' to %d before compile\n",mcols);
+	printf("\nChange the value of '#define COLS' to %d before compilation!.\n\n",mcols);
 
 	checkans();
 
