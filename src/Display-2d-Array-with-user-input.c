@@ -21,6 +21,7 @@ int data[ROWS][COLS];
 void checkans();
 void display();
 void insert();
+void modify();
 
 int main(){
 
@@ -67,11 +68,30 @@ void insert(){
 	checkans();
 }
 
+void modify(){
+
+	int mrows=0;
+	int mcols=0;
+
+	printf("\nArray Elements can't be modified on runtime at this moment, malloc is not used right now!\n\n");
+
+	printf("Enter Number of ROWS to see instructions: ");
+	scanf("%d",&mrows);
+	printf("Change 'ROWS' to %d before compile\n",mrows);
+
+	printf("Enter Number of Columns to see instructions: ");
+	scanf("%d",&mcols);
+	printf("Change 'COLS' to %d before compile\n",mcols);
+
+	checkans();
+
+}
+
 void checkans(){
 
 	int ans =0;
 
-	printf("Enter '1' for Display data | '2' for Insert Data:  ");
+	printf("Enter '1' for Display data | '2' for Insert Data | '3' for Modify 2D Array:  ");
 	scanf("%d",&ans);
 
 	if(ans==1){
@@ -79,6 +99,9 @@ void checkans(){
 	}
 	if(ans==2){
 		insert();
+	}
+	if(ans==3){
+		modify();
 	}else{
 		checkans();
 	}
